@@ -1,0 +1,336 @@
+{% load static %}
+
+<!-- {
+    % extends 'GoldPricePrediction/base.html' %} -->
+
+{% block title %}
+    <!-- Information-Page  -->
+{% endblock title %}
+
+{% block content %}
+    <!-- Include the provided styles in the head section -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'GoldPricePrediction/    .css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kalnia&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Kalnia&display=swap" rel="stylesheet">
+        <style>
+            /* Reset styles and general styling */
+            * {
+                margin: 0;
+                padding: 0;
+                text-align: center;         
+                color: #7f7f7f;
+            }
+    
+            .navbar { 
+                background-color: #FFDC7F; /* Set nav color */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                margin-top: 30px;
+                margin-left: 30px;
+                margin-right: 30px;
+                border-radius: 25px;
+            }
+            .navbar-brand {
+                display: inline-block;
+                margin-left: 60px; /* Adjust alignment */
+                color: #252525; /* Font color */
+                text-decoration:none;
+                font-size: 24px;
+    
+            }
+    
+            .navbar-nav {
+                margin-left: auto; /* Align to the right */
+            }
+    
+            /* Existing styles... */
+            .navbar-nav .nav-item {
+            margin-right: 60px; /* Adjust spacing between items */
+            text-align: right;
+            display: inline-block;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            /* float: none; */
+            /* vertical-align: top; */
+            }
+    
+            .navbar-nav .nav-item .nav-link {
+            color: #000000; /* Font color */
+            position: relative; /* Relative position */
+            text-decoration: none; /* Remove default underline */
+            overflow: hidden; /* Hide overflow for the pseudo-element */
+            }
+    
+            .navbar-nav .nav-item .nav-link::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px; /* Thickness of the line */
+                background: linear-gradient(90deg, transparent, #000000, transparent); /* Gradient as the underline */
+                transition: width 0.3s ease; /* Transition properties */
+                transform-origin: center;
+                transform: scaleX(0); /* Initially, no width */
+            }
+    
+            .navbar-nav .nav-item .nav-link:hover::before {
+                width: 100%; /* Full width on hover */
+                transform: scaleX(1); /* Scale to full width */
+            }
+    
+    
+            /* Additional styles... */
+    
+                    
+           hr {
+                border-color: #bcdfdf;
+                border-width: 2px;  /* Reduced width for hr */
+                width: 50%;  /* Make it a smaller width */
+                margin: 20px auto;  /* Centered and reasonable spacing */
+            }
+            p {
+                line-height: 2;
+            }
+            
+            h1 {
+                color: #66bfbf;
+            }
+            
+            .h2-h3 {
+                color: #11999e;
+                padding: 0;
+                margin: 15px 0 0 20px;
+                margin-bottom: 15px;
+            }
+            
+            /* Specific styles for elements on the home page */
+            /* Use classes or IDs to target specific elements if needed */
+            /* For example: */
+            
+            /* Top section */
+            .Top-Container-fluid {
+                margin: 0;
+                min-height: 50vh; /* Instead of 100vh */
+                background-color: #e4f9f5;
+            }
+                        
+            .Top-Heading {
+                padding: 5vh 0 0 0;
+            }
+            
+            .Top-paragraph {
+                color: #66bfbf;
+                margin: 0;
+            }
+            
+            /* Wrapper */
+            .Wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                padding: 0 20px; /* Reduced padding */
+                margin: 5vh 10vw; /* Reduced margin */
+            }
+
+            
+            .card {
+                flex: 0 0 32%;
+                height: 20vh;
+                margin-bottom: 5px;
+            }
+            
+            .card-text {
+                color: #40514e;
+            }
+            
+            .card-title {
+                color: #11999e;
+            }
+            
+            /* Footer */
+            footer {
+                position: relative;
+                margin-top: 20px;
+                padding: 10px;
+                background-color: #343a40;
+                color: white;
+                text-align: center;
+            }
+            .footer p {
+                margin: 0;
+            }
+            
+            /* Additional styles */
+            /* Add any other specific styles for elements on this page */
+            /* For example: */
+            
+            /* Description section */
+            .describe {
+                text-align: center;
+                margin-left: 15%;
+                margin-right: 15%;
+                color: #a071a0;
+                margin-top: 2%;
+            }
+            
+            body {
+                font-family: 'Kalnia', sans-serif;
+                background-color: #fff8e8;
+                
+            }
+            .namaste{
+              width: 500px;
+            }
+
+
+
+            .info-container {
+                width: 70%; /* Box occupies 70% of the screen width */
+                margin: 20px auto; /* Center-align the box */
+                padding: 20px; /* Add padding inside the box */
+                border: 2px solid #bcce8d; /* Border color and thickness */
+                border-radius: 10px; /* Round the corners */
+                background-color: #e4f9f5; /* Background color */
+            }
+
+            .info-container-light {
+                /* Similar styles as .info-container but with different colors */
+                width: 70%;
+                margin: 20px auto;
+                padding: 20px;
+                border: 2px solid #66bfbf;
+                border-radius: 10px;
+                background-color: #fff8e8;
+            }
+
+            /* Adjustments for headings and paragraphs inside the boxes */
+            .info-container h2,
+            .info-container-light h2 {
+                color: #11999e; /* Heading color */
+            }
+
+            .info-container p,
+            .info-container-light p {
+                color: #7f7f7f; /* Text color */
+                line-height: 1.5; /* Line height for readability */
+            }
+        </style>
+    </head>
+
+    <!-- Rest of your content -->
+    <!-- Navbar and other content -->
+{% endblock %}
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">GoldNavigator</a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> -->
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+    
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'information' %}">Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'plots' %}">Plots</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% block news_active %}{% endblock news_active %}" href="{% url 'news' %}">
+                    {% block news %}News{% endblock news %}
+                </a>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
+</header>
+
+
+{% block body %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="info-Page">
+                
+                
+                <div class="set-fluid info-container-light">
+                    <h2 class="h2-h3">Moving averages</h2>
+                    <p>
+                        The moving average (MA) is a simple technical analysis tool that smooths out price data 
+                        by creating a constantly updated average price. The average is taken over a specific period 
+                        of time, like 3 days, 9 days.
+                    </p>
+                </div>
+                <hr>
+
+                <div class="set-fluid info-container">
+                    <h2 class="h2-h3">Sentiment Analysis</h2>
+                    <p>
+                        Sentiment analysis in financial news identifies the tone (positive, negative, or neutral) of news articles to gauge
+                        market sentiment, which often correlates with gold price movements. By integrating sentiment scores with quantitative
+                        data, it improves gold price prediction models by capturing the impact of economic and geopolitical factors.
+                    </p>
+                </div>
+
+
+                <div class="set-fluid info-container-light">
+                    <h2 class="h2-h3">LSTM</h2>
+                    <p>
+                        LSTM (Long Short-Term Memory) is a type of recurrent neural network (RNN) designed to capture long-term dependencies in
+                        sequential data, making it ideal for time-series forecasting. We combined MAP values (3-day and 9-day) with financial
+                        news headlines for each day to make Closing gold price predictions.
+                    </p>
+                </div>
+
+                
+                
+                <hr>
+                
+                <div class="set-fluid info-container-light">
+                    <h2 class="h2-h3">R-squared</h2>
+                    <p>
+                        R-squared is a statistical measure of how close the data are to the fitted regression line. 
+                        It is also known as the coefficient of determination, or the coefficient of multiple determination 
+                        for multiple regression. The definition of R-squared is fairly straight-forward; it is the percentage 
+                        of the response variable variation that is explained by a linear model.         
+                        In general, the higher the R-squared, the better the model fits your data. 
+                    </p>
+                    <p>R<sup>2</sup> value: {% autoescape off %}{{r2_score}}{% endautoescape %}%</p><br><br>
+                </div>
+                <hr>
+                
+                <div class="set-fluid info-container">
+                    <h2 class="h2-h3">Linear regression model</h2>
+                    <p>
+                        Linear regression model used is:
+                        <br>
+                        {% autoescape off %}
+                            {{ RegressionModelFormula }}
+                        {% endautoescape %}
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
+</body>
+</html>
+
